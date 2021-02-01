@@ -1,5 +1,4 @@
 import React from 'react';
-import Icon from 'react-native-vector-icons/Ionicons';
 
 import {
   Container,
@@ -12,12 +11,14 @@ import {
 } from './styles';
 
 interface SlideProps {
+  icon: React.ComponentType;
   pageNumber: string;
   title: string;
   description: string;
 }
 
 const Slide: React.FC<SlideProps> = ({
+  icon: Icon,
   pageNumber,
   title,
   description,
@@ -26,7 +27,7 @@ const Slide: React.FC<SlideProps> = ({
     <Container>
       <Content>
         <Pagination>
-          <Icon name="ios-car-outline" size={96} color="#DC1637" />
+          <Icon />
           <PageNumber>{pageNumber}</PageNumber>
         </Pagination>
 

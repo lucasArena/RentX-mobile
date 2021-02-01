@@ -1,4 +1,4 @@
-import {Dimensions} from 'react-native';
+import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 
 const dimensions = Dimensions.get('window');
@@ -8,6 +8,8 @@ export const Container = styled.View`
   height: 100%;
 
   padding: 40px;
+
+  background: ${({ theme }) => theme.colors.white};
 `;
 
 export const Content = styled.View`
@@ -24,7 +26,7 @@ export const Pagination = styled.View`
 
 export const PageNumber = styled.Text`
   font-size: 62px;
-  color: red;
+  color: ${({ theme }) => theme.colors.secondaryGray};
 `;
 
 export const Details = styled.View`
@@ -33,19 +35,19 @@ export const Details = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-style: normal;
-  font-weight: bold;
+  font-family: 'Archivo-Medium';
+
   font-size: 40px;
   line-height: 42px;
 `;
 
 export const Description = styled.Text`
-  font-style: normal;
-  font-weight: normal;
+  font-family: 'Inter-Regular';
+
   font-size: 15px;
   line-height: 25px;
 
   margin-top: 24px;
 
-  color: #7a7a80;
+  color: ${({ theme }) => theme.colors.text};
 `;
