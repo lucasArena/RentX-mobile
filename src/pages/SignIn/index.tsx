@@ -7,7 +7,9 @@ import {
   TextInput,
 } from 'react-native';
 import { FormHandles } from '@unform/core';
+import * as Yup from 'yup';
 
+import { useNavigation } from '@react-navigation/native';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 
@@ -27,12 +29,33 @@ import {
   SignInButton,
 } from './styles';
 
+interface signInFormData {
+  email: string;
+  password: string;
+}
+
 const SignIn: React.FC = () => {
+  const { navigate } = useNavigation();
+
   const formRef = useRef<FormHandles>(null);
   const passwordInputRef = useRef<TextInput>(null);
 
-  const handleSubmit = useCallback(() => {
-    passwordInputRef.current?.focus();
+  const handleSubmit = useCallback(async (data: signInFormData) => {
+    // passwordInputRef.current?.focus();
+    try {
+      const schema = Yup.object({
+        email: Yup.string().required('E-mail obrigatório'),
+        password: Yup.string().required('Senha obrigatória'),
+      });
+
+      // await schema.validate(data, {
+      //   abortEarly: false,
+      // });
+
+      navigate('App');
+    } catch (error) {
+      console.error(error);
+    }
   }, []);
   return (
     <Container behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>

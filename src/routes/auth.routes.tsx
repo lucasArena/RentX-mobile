@@ -8,6 +8,8 @@ import PasswordSignUp from '../pages/SignUp/Password';
 
 import Success from '../pages/Success';
 
+import App from './app.routes';
+
 const Auth = createStackNavigator();
 
 const AuthRoutes: React.FC = () => (
@@ -20,6 +22,8 @@ const AuthRoutes: React.FC = () => (
     <Auth.Screen name="SignIn" component={SignIn} />
     <Auth.Screen name="PersonalSignUp" component={PersonalSignUp} />
     <Auth.Screen name="PasswordSignUp" component={PasswordSignUp} />
+
+    <Auth.Screen name="App" component={App} />
 
     <Auth.Screen name="Success" component={Success} />
   </Auth.Navigator>
